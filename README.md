@@ -1,3 +1,5 @@
+![](http://i.imgur.com/z2Jjmuj.gif)
+
 # pg-cursor-demo
 Compare memory footprints with and without pg-cursor.
 

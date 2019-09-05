@@ -2,7 +2,7 @@
   // Set config using env vars
   require('dotenv').config();
 
-  // Fire up a callback every 500s to log memory usage
+  // Fire up a callback every 500ms to log memory usage
   let maxMemoryUsed = 0.0;
   const timeout = setInterval(() => {
     let currentMemoryUsed = process.memoryUsage().heapUsed / (1024 * 1024);

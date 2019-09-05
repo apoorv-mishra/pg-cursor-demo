@@ -30,7 +30,7 @@
     SELECT * FROM ${argv.t}
   `;
 
-  const ROWS_PER_BATCH = 1000; 
+  const ROWS_PER_BATCH = argv.r || 1000;
 
   try {
     const cursor = client.query(new Cursor(text));

@@ -22,5 +22,5 @@ PGDATABASE=<database>
 PGPORT=<port>
 ```
 5. `npm install`
-6. Split the terminal vertically, run `node without-cursor.js -t bit_table` in one and `node with-cursor.js -t big_table` in the other simultaneously.
+6. Split the terminal vertically, run `node without-cursor.js -t bit_table` in one and `node with-cursor.js -t big_table -r <rows-per-batch>` in the other simultaneously.
 7. Sit back and observe the numbers(those numbers are just `heapUsed` in `MBs`).

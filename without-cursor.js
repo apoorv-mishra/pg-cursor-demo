@@ -13,7 +13,7 @@
   const argv = require('minimist')(process.argv.slice(2));
   const { Pool } = require('pg');
 
-  // Specify connection params
+  // Create pool(Why use pool? Refer https://node-postgres.com/features/pooling)
   const pool = new Pool();
 
   // Connect using a client from pool
@@ -30,7 +30,9 @@
 
   try {
     console.log('Querying...\n');
+
     const res = await client.query(text);
+
     console.log('\nSuccessfully queried!');
     console.log(`Total rows fetched: ${res.rows.length}`);
     console.log(`Max memory used during this run: ${maxMemoryUsed} MB`);

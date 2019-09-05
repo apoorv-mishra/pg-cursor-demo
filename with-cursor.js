@@ -15,7 +15,7 @@
   const { Pool } = require('pg');
   const Cursor = require('pg-cursor');
 
-  // Specify connection params
+  // Create pool(Why use pool? Refer https://node-postgres.com/features/pooling)
   const pool = new Pool();
 
   // Connect using a client from pool
@@ -34,6 +34,8 @@
 
   try {
     const cursor = client.query(new Cursor(text));
+
+    // Promisify cursor.read to make it compatible with async/await
     const promisifiedCursorRead = util.promisify(cursor.read.bind(cursor));
 
     console.log('Querying...\n');

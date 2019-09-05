@@ -5,7 +5,7 @@
   // Fire up a callback every 500s to log memory usage
   let maxMemoryUsed = 0.0;
   const timeout = setInterval(() => {
-    let currentMemoryUsed = process.memoryUsage().heapUsed / 1e6;
+    let currentMemoryUsed = process.memoryUsage().heapUsed / (1024 * 1024);
     maxMemoryUsed = Math.max(maxMemoryUsed, currentMemoryUsed);
     console.log(currentMemoryUsed);
   }, 500);
@@ -49,7 +49,7 @@
 
     console.log('\nSuccessfully queried!');
     console.log(`Total rows fetched: ${totalRowsFetched}`);
-    console.log(`Max memory used during this run: ${maxMemoryUsed}`);
+    console.log(`Max memory used during this run: ${maxMemoryUsed} MB`);
   } catch (e) {
     console.log('\nError occured while querying...');
     console.log(e.stack);

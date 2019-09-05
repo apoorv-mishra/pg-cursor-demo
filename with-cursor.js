@@ -35,14 +35,12 @@
   try {
     const cursor = client.query(new Cursor(text));
     const promisifiedCursorRead = util.promisify(cursor.read.bind(cursor));
-    let batchCount = 0;
-    let totalRowsFetched = 0;
 
     console.log('Querying...\n');
 
+    let totalRowsFetched = 0;
     let rows;
     do {
-      batchCount++;
       rows = await promisifiedCursorRead(ROWS_PER_BATCH);
       totalRowsFetched += rows.length;
     } while(rows.length);
